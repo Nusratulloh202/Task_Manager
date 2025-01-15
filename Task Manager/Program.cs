@@ -15,10 +15,19 @@ Console.Clear();
 switch (selectionNumber)
 {
     case 1:
-    {
+        {
             Console.WriteLine("Tanlangan vazifa, foydalanuvchi ma'lumotlar ustida amallar.");
             UserInformation userInformation = new UserInformation();
             userInformation.AddUser();
             break;
-    }
+        }
+    case 2:
+        {
+            Console.WriteLine("Tanlangan vazifa, Factorial hisoblash.");
+            Factorial factorial = new Factorial();
+            factorial.InputFactor();
+            break;
+        }
+       
+
 }
