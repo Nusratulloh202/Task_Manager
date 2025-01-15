@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Task_Manager.HelperClass;
+
+PasswordClass passwordClass = new PasswordClass();
+passwordClass.ValidatePassword();
