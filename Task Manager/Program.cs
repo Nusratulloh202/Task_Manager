@@ -28,6 +28,13 @@ switch (selectionNumber)
             factorial.InputFactor();
             break;
         }
+    case 3:
+        {
+            Console.WriteLine("Tanlangan vazifa, Sonlar ustida (+,-,*,/) amallari.");
+            MathOperations mathOperations = new MathOperations();
+            mathOperations.MathOperation();
+            break;
+        }
        
 
 }
