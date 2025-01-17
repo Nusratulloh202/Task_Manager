@@ -12,37 +12,45 @@ namespace Task_Manager.HelperClass
         public double CircleRadius { get; set; }
         public double RectangleHeight { get; set; }
         public double RectangleWeight { get; set; }
-        public short GeometricSelection { get; set; }
         public const double pe = 3.14;
 
 
         public void GeometricShapVoid()
         {
-            Console.WriteLine("1.Doira ustida amallar,\n2.To'rtburchak utida amallar");
-            short geometrikSelection = short.Parse(Console.ReadLine());
+            Console.WriteLine("1. To'rtburchak ustida amallar");
+            Console.WriteLine("2. Doira ustida amallar");
+            Console.Write("Tanlovingizni kiriting: ");
+
+            short GeometrikSelection = short.Parse(Console.ReadLine());
             string tanlovRectangle;
-            if (geometrikSelection == 1)
+            if (GeometrikSelection == 1)
             {
                 do
                 {
                     Console.Write("To'g'ri to'rtburchakni balandligini kiriting:");
-                    double rectangleHeight = double.Parse(Console.ReadLine());
+                    if (!double.TryParse(Console.ReadLine(), out double rectangleHeight))
+                    {
+                        Console.WriteLine("Noto'g'ri qiymat kiritildi. Qayta urinib ko'ring.");
+                        return;
+                    }
                     Console.Write("To'g'ri to'rtburchakni enini kiriting:");
-                    double rectangleWeight = double.Parse(Console.ReadLine());
+                    if (!double.TryParse(Console.ReadLine(), out double rectangleWeight))
+                    {
+                        Console.WriteLine("Noto'g'ri qiymat kiritildi. Qayta urinib ko'ring.");
+                        return;
+                    }
                     RectangleHeight = rectangleHeight;
                     RectangleWeight = rectangleWeight;
-                    Console.WriteLine($"To'rtburchak yuzasi:{RectangleYuza}" +
-                       $"\nTo'rtburchak perimetri:{RectanglePerimetr}");
-                    Console.ReadLine();
+                    Console.WriteLine($"To'rtburchak yuzasi:{RectangleYuza(RectangleHeight, RectangleWeight)}" +
+                       $"\nTo'rtburchak perimetri:{RectanglePerimetr(RectangleHeight, RectangleWeight)}");
                     Console.WriteLine("To'g'ri to'rtburchak buyicha yana masala ishlaymizmi(ha/yoq)");
-                    string tanlovCircleInput = Console.ReadLine();
-                    tanlovRectangle = tanlovCircleInput;
+                    tanlovRectangle =Console.ReadLine()?.ToLower();
                 } while (tanlovRectangle == "ha");
 
             }
             string tanlovCircle;
 
-            if (geometrikSelection == 2)
+            if (GeometrikSelection == 2)
                 do
                 {
                     Console.Write("Aylana Radiusini kiriting:");
@@ -50,10 +58,9 @@ namespace Task_Manager.HelperClass
                     CircleRadius = circleRadius;
                     Console.WriteLine($"Aylana yuzasi:{CircleYuza(circleRadius, pe)}" +
                         $"\nAylana Yoy uzunligi:{CircleYoyUzunligi(circleRadius, pe)}");
-                    Console.ReadLine();
-                    Console.WriteLine("Aylana buyicha yana masala ishlaymizmi(ha/yoq)");
+                    Console.WriteLine("\nAylana buyicha yana masala ishlaymizmi(ha/yoq)");
                     string tanlovCircleInput = Console.ReadLine();
-                    tanlovCircle = tanlovCircleInput;
+                    tanlovCircle = Console.ReadLine()?.ToLower();
                 } while (tanlovCircle == "ha");
 
         }
