@@ -35,6 +35,12 @@ switch (selectionNumber)
             mathOperations.MathOperation();
             break;
         }
-       
+    case 4:
+        {
+            Console.WriteLine("Tanlangan vazifa, To'rburchak yuzasi va perimetrini hisoblash.");
+            GeometricShapes geometricShapes = new GeometricShapes();
+            geometricShapes.GeometricShapVoid();
+            break;
+        }
 
 }
