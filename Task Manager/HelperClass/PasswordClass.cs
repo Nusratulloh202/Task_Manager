@@ -8,7 +8,7 @@ namespace Task_Manager.HelperClass
 {
     internal class PasswordClass
     {
-        private const string CorrectPassword = "AC1929891";
+        private  string CorrectPassword = "AC1929891";
 
         public void ValidatePassword()
         {
@@ -31,6 +31,25 @@ namespace Task_Manager.HelperClass
             Console.ReadKey();
             Console.Clear();
 
+        }
+        public string InputOldPassword { get; set; }
+        public void OldPasswordTekshir()
+        {
+            do
+            {
+                Console.Write("Eski parolni kiriting:");
+                string inputOldPassword = Console.ReadLine();
+                InputOldPassword = inputOldPassword;
+
+            } while (InputOldPassword != CorrectPassword);
+            Console.WriteLine("Parol tasdiqlandi.");
+            
+
+        }
+        public string NewPasswordUpdate(string newPass)
+        {
+            CorrectPassword = newPass;
+            return CorrectPassword;
         }
     }
 }
